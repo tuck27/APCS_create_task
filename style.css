@@ -1,0 +1,23 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    color: white;
+    border: black 1px;
+    padding: 10px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    background-color: rgb(115, 148, 123);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.button {
+    transition-duration: 0.4s;
+}
+.button:hover{
+    background-color: rgb(115, 148, 123);
+    color: whitesmoke
+}
