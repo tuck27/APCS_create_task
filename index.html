@@ -1,36 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Career Decider</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>CAREER DECIDER</h1>
-    <p>Welcome to the Career Decider App!</p>
-    <br>
-    <div class="input-container">
-        <input type="text" id="name" name="name" size="20" placeholder="Type Your Name"/>
-        <br>
-        <button>Submit</button>
-    </div>
-    <br>
-    <div class="questions">
-        <p>Question: </p>
-    </div>
-    <div class="answer_1">
-        <button>Answer</button>
-    </div>
-    <div class="answer_2">
-        <button>Answer</button>
-    </div>
-    <div class="answer_3">
-        <button>Answer</button>
-    </div>
-    <div class="answer_4">
-        <button>Answer</button>
+    <div class="container">
+        <header>
+            <h1>Career Quiz</h1>
+            <br>
+            <p>Answer the questions to discover your ideal career!</p>
+        </header>
+        <main id="quiz-container">
+            <div id="question-box">
+                <h3 id="question">Question will appear here</h3>
+                <div class="options"></div>
+            </div>
+            <div id="result-box" class="hidden">
+                <h2>Your Ideal Career Is: </h2>
+                <p id="result"></p>
+                <button id="restart">Restart Quiz</button>
+            </div>
+        </main>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
