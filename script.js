@@ -51,12 +51,16 @@ const resultBox = document.getElementById("result-box");
 const resultText = document.getElementById("result");
 const restartButton = document.getElementById("restart");
 
-//Load first question
+//input container that displays name of user
+
+
+
+//Loads first question
 function loadQuestion() {
     const currentQuestion = questions[currentQuestionIndex];
     questionText.textContent = currentQuestion.question;
     optionsContainer.innerHTML = "";       //Clears previous options
-    //Add answer choices as buttons
+    //Adds answer choices as buttons
     currentQuestion.choices.forEach((choice, index) => {
         const button = document.createElement("button");
         button.textContent = choice;
@@ -66,14 +70,14 @@ function loadQuestion() {
     });
 }
 
-//Handle answer selection
+//Handles answer selection
 function handleAnswer(selectedIndex) {
-    //Update career scores based on the selected answer
+    //Updates career scores based on the selected answer
     const currentScores = questions[currentQuestionIndex].scores;
     for (let i = 0; i < careerScores.length; i++) {
         careerScores[i] += currentScores[i] * (i === selectedIndex ? 1 : 0);
     }
-    //Move to the next question or show results
+    //Moves to the next question or show results
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
         loadQuestion();
@@ -82,38 +86,20 @@ function handleAnswer(selectedIndex) {
     }
 }
 
-//Display the final result
+//Displays the final result
 function showResult() {
     questionBox.classList.add("hidden");
     resultBox.classList.remove("hidden");
     //Find the career with the highest score
     const maxScoreIndex = careerScores.indexOf(Math.max(...careerScores));
     resultText.textContent = careers[maxScoreIndex];
-    launchConfetti();  //trigger confetti
 }
 
 //Confetti launch function
-function launchConfetti() {
-    const duration = 5 * 1000; //5 seconds of confetti
-    const animationEnd = Date.now() + duration;
-    const confettiInterval = setInterval(() => {
-        const timeLeft = animationEnd - Date.now();
-        if (timeLeft <= 0) {
-            clearInterval(confettiInterval);
-            return;
-        }
-        const particleCount = 50 * (timeLeft / duration); //gradual decrease in particles
-        confettiInterval({
-            particleCount,
-            startVelocity: 30,
-            spread: 360,
-            origin: { x: Math.random(), y: Math.random() - 0.2 } //random positions
-        });
-    }, 250);
-}
 
 
-//Restart the quiz
+
+//Restarts the quiz
 restartButton.addEventListener("click", () => {
     currentQuestionIndex = 0;
     careerScores = [0, 0, 0, 0]
@@ -122,5 +108,5 @@ restartButton.addEventListener("click", () => {
     loadQuestion();
 });
 
-//Initialize quiz
+//Initializes quiz
 loadQuestion();
