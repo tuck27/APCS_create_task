@@ -13,8 +13,9 @@
         <header>
             <h1>Career Quiz</h1>
             <br>
-            <div class="input-container"><input type="text" id="name" name="name" size="10" placeholder="Enter your name" /></div>
-            <button>Submit</button>
+            <div class="input-container"><input type="text" id="nameInput" name="name" size="10" placeholder="Enter your name" /></div>
+            <button id="submitButton" onclick="displayWelcome()">Submit</button>
+            <p id="output"></p>
             <br>
             <p>Answer the questions to discover your ideal career!</p>
         </header>
@@ -27,10 +28,10 @@
                 <h2>Your Ideal Career Is: </h2>
                 <p id="result"></p>
                 <button id="restart">Restart Quiz</button>
-                <div class="confetti-container"></div>
             </div>
         </main>
     </div>
+    <script src="https.//cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.min.js"></script>
     <script src="script.js"></script>
 </body>
 

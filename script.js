@@ -52,7 +52,15 @@ const resultText = document.getElementById("result");
 const restartButton = document.getElementById("restart");
 
 //input container that displays name of user
-
+function displayWelcome() {
+    //get name from input field
+        let name = document.getElementById("nameInput").value;
+        //displays welcome message 
+            document.getElementById("output").textContent = "Welcome, " + name + "!";
+        //hides input container and submit button after welcome message is displayed
+            document.getElementById("nameInput").style.display = "none";
+            document.getElementById("submitButton").style.display = "none";
+};
 
 
 //Loads first question
@@ -92,11 +100,28 @@ function showResult() {
     resultBox.classList.remove("hidden");
     //Find the career with the highest score
     const maxScoreIndex = careerScores.indexOf(Math.max(...careerScores));
-    resultText.textContent = careers[maxScoreIndex];
+    resultText.textContent = `🎉 Congratulations! Your Ideal Career is: ${careers[maxScoreIndex]}🎉`;
+    launchConfetti();
 }
 
 //Confetti launch function
-
+function launchConfetti() {
+    const duration = 3 * 1000; //3 seconds of confetti
+    const animationEnd = Date.now() + duration;
+    const confettiInterval = setInterval(() => {
+        const timeLeft = animationEnd - Date.now();
+        if(timeLeft <= 0) {
+            clearInterval(confettiInterval);
+            return;
+        }
+        confetti ({
+            particleCount: 50,
+            spread: 360,
+            startVelocity: 30,
+            origin: {x: Math.random(), y: Math.random() - 0.2}, //random positions for confetti
+        });
+    }, 300);
+}
 
 
 //Restarts the quiz
