@@ -101,27 +101,11 @@ function showResult() {
     //Find the career with the highest score
     const maxScoreIndex = careerScores.indexOf(Math.max(...careerScores));
     resultText.textContent = `🎉 Congratulations! Your Ideal Career is: ${careers[maxScoreIndex]}🎉`;
-    launchConfetti();
+    //Trigger sparkle effect 
+    document.querySelector(".sparkles").classList.add("show");
 }
 
-//Confetti launch function
-function launchConfetti() {
-    const duration = 3 * 1000; //3 seconds of confetti
-    const animationEnd = Date.now() + duration;
-    const confettiInterval = setInterval(() => {
-        const timeLeft = animationEnd - Date.now();
-        if(timeLeft <= 0) {
-            clearInterval(confettiInterval);
-            return;
-        }
-        confetti ({
-            particleCount: 50,
-            spread: 360,
-            startVelocity: 30,
-            origin: {x: Math.random(), y: Math.random() - 0.2}, //random positions for confetti
-        });
-    }, 300);
-}
+
 
 
 //Restarts the quiz
