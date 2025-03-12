@@ -101,8 +101,6 @@ function showResult() {
     //Find the career with the highest score
     const maxScoreIndex = careerScores.indexOf(Math.max(...careerScores));
     resultText.textContent = `🎉 Congratulations! Your Ideal Career is: ${careers[maxScoreIndex]}🎉`;
-    //Trigger sparkle effect 
-    document.querySelector(".sparkles").classList.add("show");
 }
 
 
