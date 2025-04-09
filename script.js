@@ -21,7 +21,7 @@ const questions = [
     },
     {
         question: "How do you spend your free time?",
-        choices: ["Exploring new apps", "Volunteering or tutoring", "Drawing or crafting", "Conducting small experiments"],
+        choices: ["Exploring new apps", "Volunteering or tutoring", "Drawing or crafting", "Studying new viruses"],
         scores: [1, 1, 1, 1]            //scores for Engineer, Teacher, Artist, and Scientist
     },
     {
@@ -31,7 +31,7 @@ const questions = [
     },
     {
         question: "What kind of projects excite you the most?",
-        choices: ["Developing apps or games", "Organizing educational events", "Creating art for exhibitions", "Conducting research experiments"],
+        choices: ["Developing apps or games", "Making lesson plans", "Creating art for museums", "Chemistry labs"],
         scores: [1, 1, 1, 1]            //scores for Engineer, Teacher, Artist, and Scientist
     }
 ];
@@ -57,9 +57,6 @@ function displayWelcome() {
         let name = document.getElementById("nameInput").value;
         //displays welcome message 
             document.getElementById("output").textContent = "Welcome, " + name + "!";
-        //hides input container and submit button after welcome message is displayed
-            document.getElementById("nameInput").style.display = "none";
-            document.getElementById("submitButton").style.display = "none";
 };
 
 
@@ -103,15 +100,15 @@ function showResult() {
     resultText.textContent = `🎉 Congratulations! Your Ideal Career is: ${careers[maxScoreIndex]}🎉`;
 }
 
-
-
-
 //Restarts the quiz
 restartButton.addEventListener("click", () => {
     currentQuestionIndex = 0;
     careerScores = [0, 0, 0, 0]
     resultBox.classList.add("hidden");
     questionBox.classList.remove("hidden");
+    //hides input container and submit button after welcome message is displayed
+    nameInput.style.display = "none";
+    submitButton.style.display = "none";
     loadQuestion();
 });
 
